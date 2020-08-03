@@ -1,0 +1,19 @@
+{% extends 'news/base.html' %}
+{% block desc %}{{new.description}}{% endblock desc %}
+{% block keywords %}{{new.keywords}}{% endblock keywords %}
+{% block title %}{% endblock title %}
+
+
+
+
+{% block content %}
+<a href="{% url 'news_list' %}"><b>Главная страница</b></a>
+    <h1>{{new.title}}</h1>
+    <p>{{new.text}}</p><hr>
+
+    Категория: {{new.category}}<br>
+    Теги:<br>{% for tag in new.tags.all %}
+                - {{tag.title}}<br>
+            {% endfor %}
+    Автор: {{new.user}} - {{new.created}}
+{% endblock content %}

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URLS</title>
+</head>
+<body>
+    {% for new in news %}
+    <h2><a href="{% url 'new_single' pk=new.id%}">{{new.title}}</a></h2>
+    <p>{{new.text}}</p>
+    <p>{{new.created}}</p>
+{% endfor %}
+</body>
+</html>
